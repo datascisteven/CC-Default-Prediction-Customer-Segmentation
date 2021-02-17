@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 from sklearn.metrics import precision_score, recall_score, accuracy_score, f1_score, roc_curve, auc, average_precision_score, confusion_matrix, precision_recall_curve, roc_auc_score, classification_report
@@ -50,3 +51,11 @@ def get_metrics(X_tr, y_tr, X_val, y_val, y_pred_tr, y_pred_val, model):
     labels = [f'{v1}\n{v2}\n{v3}' for v1, v2, v3 in zip(group_names, group_counts, group_percentages)]
     labels = np.asarray(labels).reshape(2,2)
     sns.heatmap(cnf, annot=labels, fmt='', cmap='Blues', annot_kws={'size':16})
+
+def plot_feature_importances(X, model):
+    n_features = X.shape[1]
+    plt.figure(figsize=(8, 8))
+    plt.barh(range(n_features), model.feature_importances_, align='center')
+    plt.yticks(np.arange(n_features), X.columns.values)
+    plt.xlabel("Feature Importance")
+    plt.ylabel('Feature')
