@@ -1,14 +1,6 @@
 import numpy as np
 import seaborn as sns
-from sklearn.metrics import confusion_matrix, precision_recall_curve, roc_auc_score, classification_report, 
-from sklearn.metrics import precision_score, recall_score, accuracy_score, f1_score, roc_curve, auc, average_precision_score
-
-
-def recall(y, y_hat):
-    y_y_hat = list(zip(y, y_hat))
-    tp = sum([1 for i in y_y_hat if i[0] == 1 and i[1] == 1])
-    fn = sum([1 for i in y_y_hat if i[0] == 1 and i[1] == 0])
-    return tp / float(tp + fn)
+from sklearn.metrics import precision_score, recall_score, accuracy_score, f1_score, roc_curve, auc, average_precision_score, confusion_matrix, precision_recall_curve, roc_auc_score, classification_report
 
 def auc(X, y, model):
     probs = model.predict_proba(X)[:,1] 
@@ -29,17 +21,21 @@ def get_metrics(X_tr, y_tr, X_val, y_val, y_pred_tr, y_pred_val, model):
     rc_val = recall_score(y_val, y_pred_val)
     pr_tr = precision_score(y_tr, y_pred_tr)
     pr_val = precision_score(y_val, y_pred_val)
+    aps_tr = aps(X_tr, y_tr, model)
+    aps_val = aps(X_val, y_val, model)
 
-    print('Training Accuracy: ', )
-    print('Validation Accuracy: ', )
-    print('Training F1 Score: ', )
-    print('Validation F1 Score: ', )
-    print('Training AUC Score: ', )
-    print('Validation AUC Score: ', )
-    print('Training Recall Score: ', )
-    print('Validation Recall Score: ', )
-    print('Training Precision Score: ', )
-    print('Validation Precision Score: ', )
+    print('Training Accuracy: ', ac_tr)
+    print('Validation Accuracy: ', ac_val)
+    print('Training F1 Score: ', f1_tr)
+    print('Validation F1 Score: ', f1_val)
+    print('Training AUC Score: ', au_tr)
+    print('Validation AUC Score: ', au_val)
+    print('Training Recall Score: ', rc_tr)
+    print('Validation Recall Score: ', rc_val)
+    print('Training Precision Score: ', pr_tr)
+    print('Validation Precision Score: ', pr_val)
+    print('Training Average Precision Score: ', aps_tr)
+    print('Validation Average Precision Score: ', aps_val)
     print('')
     print("Training Classification Report: ")
     print(classification_report(y_tr, y_pred_tr))
