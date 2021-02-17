@@ -3,6 +3,32 @@ import numpy as np
 import seaborn as sns
 from sklearn.metrics import precision_score, recall_score, accuracy_score, f1_score, roc_curve, auc, average_precision_score, confusion_matrix, precision_recall_curve, roc_auc_score, classification_report
 
+def accuracy(y, y_hat):
+    y_y_hat = list(zip(y, y_hat))
+    tp = sum([1 for i in y_y_hat if i[0] == 1 and i[1] == 1])
+    tn = sum([1 for i in y_y_hat if i[0] == 0 and i[1] == 0])
+    return (tp + tn) / float(len(y_y_hat))
+
+def f1(y, y_hat):
+    precision_score = precision(y, y_hat)
+    recall_score = recall(y, y_hat)
+    numerator = precision_score * recall_score
+    denominator = precision_score + recall_score
+    return 2 * (numerator / denominator)
+
+def precision(y, y_hat):
+    y_y_hat = list(zip(y, y_hat))
+    tp = sum([1 for i in y_y_hat if i[0] == 1 and i[1] == 1])
+    fp = sum([1 for i in y_y_hat if i[0] == 0 and i[1] == 1])
+    return tp / float(tp + fp)
+
+def recall(y, y_hat):
+    # Your code here
+    y_y_hat = list(zip(y, y_hat))
+    tp = sum([1 for i in y_y_hat if i[0] == 1 and i[1] == 1])
+    fn = sum([1 for i in y_y_hat if i[0] == 1 and i[1] == 0])
+    return tp / float(tp + fn)
+
 def auc(X, y, model):
     probs = model.predict_proba(X)[:,1] 
     return roc_auc_score(y, probs)
