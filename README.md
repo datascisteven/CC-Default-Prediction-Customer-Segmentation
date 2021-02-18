@@ -2,26 +2,17 @@
 
 ![country](images/county_conf_by_pop.png)
 
-**Project Contributors**:  Joseph Marx, Steven Yan
+**Project Contributor**:  Steven Yan
 
 ## Business Problem:
 
-
 ## Business Proposal:
-
 
 ## Data Collection:
 
-
-
-
 ## Modeling Process:
 
-
-
-
 ## Analysis and Next Steps:
-
 
 ## Folder Structure:
 
