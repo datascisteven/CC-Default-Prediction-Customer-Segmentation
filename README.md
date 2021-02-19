@@ -39,10 +39,10 @@ The 25 variables in this dataset comprises of:
 ## Modeling Process:
 
 - Train-Validate-Test Split: 70-20-10
-- Vanilla Model: Logistic Regression, Decision Tree, Random Forest, Gaussian Naive Bayes, Linear Discriminant Analysis, K-Nearest Neighbors, Adaboost, Gradient Boosting, XGBoost
-- Feature Engineering and Selection:  Random Forest, Decision Tree, Adaboost, RFECV
+- Vanilla Model:  Logistic Regression, Decision Tree, Random Forest, Gaussian Naive Bayes, Linear Discriminant Analysis, K-Nearest Neighbors, Adaboost, Gradient Boosting, XGBoost
+- Feature Engineering and Selection:  Random Forest, Decision Tree, and Adaboost Feature Importance, Recursive Feature Elimination
 - Baseline Model:  Logistic Regression, Decision Tree, Random Forest, Adaboost, Gradient Boosting, XGBoost
-- Hyperparameter Tuning:  Decision Tree, Random Forest, Adaboost, Gradient Boosting, XGBoost with GridSearchCV
+- Hyperparameter Tuning:  Decision Tree, Random Forest, Adaboost, Gradient Boosting, and XGBoost Classifiers with GridSearchCV
 - Class Imbalance: SMOTE, Tomek Links
 
 ## Analysis and Next Steps:
@@ -51,9 +51,9 @@ The 25 variables in this dataset comprises of:
 ## Folder Structure:
 
 ```
-├── /data
-│    ├── *.pickle                  <- pickles for transfering data between workbooks
-│    ├── *.csv                     <- initial and training-validation-testing datasets
+├── /data                          (folder containing data files)
+│    ├── *.pickle                  <- pickles for transfering data between project workbooks
+│    ├── *.csv                     <- initial spreadsheet and training-validation-testing datasets
 ├── /images                        (folder containing generated visualizations)
 │    ├── *.png                     <- code-generated visualizations for EDA
 ├── /workbooks                     (folder containing workbooks for project)
@@ -61,17 +61,20 @@ The 25 variables in this dataset comprises of:
 │    ├── Initial_Modeling.ipynb    <- baseline model and feature selection workbook
 │    └── More_Modeling.ipynb       <- hyperparameter tuning and class imbalance workbook
 ├── README.md                      <- top-level README for reviewers of this project
+└── presentation.pdf               <- pdf of the project presentation
 
-├── data                           <- dataset files
-├── summary_presentation.pdf       <- a pdf of the project presentation
-└── images                         <- both sourced externally and generated from code
 ```
 
 ## Questions:
 
-Steven Yan—
+If you have questions about the project or, please feel free to connect with me at my email:
 
-- Email: stevenyan@uchicago.edu
-- LinkedIn: <a href='https://www.linkedin.com/in/examsherpa/'>Steven Yan</a>
+- Email: **<a href='mailto@stevenyan@uchicago.edu'>stevenyan@uchicago.edu</a>**
+
+If you are interested in connecting for networking, please feel free to connect with me via LinkedIn:
+
+- My Profile: **<a href='https://www.linkedin.com/in/examsherpa/'>Steven Yan</a>**
 
 ## Sources:
+
+
