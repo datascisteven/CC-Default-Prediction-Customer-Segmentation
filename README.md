@@ -4,13 +4,22 @@
 
 <img src="images/credit_card.jpeg">
 
-## Business Problem and Proposal:
+## Business Problem:
 
 A credit card issuer based in the United States has forayed into the Asian market and wants to gain a better understanding of the customer base andcredit car their credit card habits.
 
-In developing a model for predicting the likelihood of default for the customer base, as well as identifying the key drivers that determine this likelihood, our team would be able to inform the issuer’s decisions on whom to give a credit card to and what credit limit to provide.
+In predict the likelihood of default for its customers, as well as identify the key drivers that determine this likelihood.
 
-We also aim to provide our client a better understanding of its current and potential customer base, which would help inform its future strategy, which includes the offering of targeted credit products to its customers.
+This would inform the issuer’s decisions on who to give a credit card to and what credit limit to provide.
+
+It would also help the issuer have a better understanding of their current and potential customers, which would inform their future strategy, including their planning of offering targeted credit products to their customers.
+
+The goal behind using this model is to achieve two things:
+
+* Bring more consistency to the loaning process and;
+* Investigate what the key drivers are behind a potential defaulter
+
+## Business Proposal:
 
 ## Data Collection:
 
@@ -38,8 +47,6 @@ The 25 variables in this dataset comprises of:
 
 ## Analysis and Next Steps:
 
-* Explore further into class imbalance methods
-* Adjust threshold for optimal precision and recall in PR curve
 
 ## Folder Structure:
 
@@ -69,3 +76,10 @@ If you are interested in connecting for networking, please feel free to connect 
 - My Profile: **<a href='https://www.linkedin.com/in/examsherpa/'>Steven Yan</a>**
 
 ## Sources:
+
+Default of Credit Card Clients Dataset on Kaggle: https://www.kaggle.com/uciml/default-of-credit-card-clients-dataset
+
+UCI Machine Learning Repository
+
+Yeh, I. C., & Lien, C. H. (2009). The comparisons of data mining techniques for the predictive accuracy of probability of default of credit card clients. Expert Systems with Applications, 36(2), 2473-2480.
+https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients
