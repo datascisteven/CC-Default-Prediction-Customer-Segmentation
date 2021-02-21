@@ -2,8 +2,7 @@
 
 **Project Contributor**:  Steven Yan
 
-**Project Supervisors**: Fangfang Lee, Joshua...
-
+**Project Supervisors**: Fangfang Lee, Joshua (need last name)
 
 <img src="images/credit_card.jpeg">
 
@@ -22,6 +21,7 @@ The goal behind using this model is to achieve two things:
 * Bring more consistency to the loaning process and;
 * Investigate what the key drivers are behind a potential defaulter
 
+(need to edit and clean up)
 
 ## Data Collection:
 
@@ -87,13 +87,20 @@ The 25 variables in this dataset comprises of:
   - Hybridized: SMOTE-ENN, SMOTE-Tomek
 
 
-## Analysis:
+## Exploratory Data Analysis:
 
-There was not a significant difference in the vanilla model, model with all the engineered features, and model after using feature selection methods.  The initial models were selected for the highest accuracy and PR AUC score.
+<img src="images/baseline.png">
 
-Some of the engineered features created seemed to have a stronger correlation than the original variables.  I have to check for collinearity as some of the variables would overlap in context.  I am surprised that the demographic features does not have a greater correlation with default.  It would seem useful for companies to be able to identify certain demographic groups that are more prone to defaulting.
+There is a clear class imbalance that will need to be addressed in creating the best predictive model for customers likely to default on their next payment.
 
-The metric I used was the PR AUC score, but with an eye to increasing accuracy and PR AUC score, which is the scoring parameters I used in GridSearchCV for hyperparameter tuning. Hyperparameter tuning improved accuracy to 82% from a baseline of 77%, and the highest PR AUC score at around 54%. My initial analysis of implementing class imbalance methods is that it substantially increases the PR AUC score to almost 90%, but accuracy tops out at 82% on the validation set.
+<img src="images/pairplot2.png">
+
+The difference in distributions as exhibited in the diagonal plots indicates that `behind1` - `behind6` has correlation with `default`.
+
+<img src="images/pairplot1.png">
+
+There is not the same clear difference in distribution between the different `gender`, `education`, `marriage`categories, which would indicate to me that they would have less of a correlation with `default`.
+
 
 
 
@@ -143,4 +150,8 @@ Default of Credit Card Clients Dataset on Kaggle: [https://www.kaggle.com/uciml/
 
 UCI Machine Learning Repository: [https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients)
 
-Yeh, I. C., & Lien, C. H. (2009). The comparisons of data mining techniques for the predictive accuracy of probability of default of credit card clients. Expert Systems with Applications, 36(2), 2473-2480. [link](https://bradzzz.gitbooks.io/ga-seattle-dsi/content/dsi/dsi_05_classification_databases/2.1-lesson/assets/datasets/DefaultCreditCardClients_yeh_2009.pdf)
+Yeh, I. C., & Lien, C. H. (2009). The comparisons of data mining techniques for the predictive accuracy of probability of default of credit card clients. Expert Systems with Applications, 36(2), 2473-2480. [PDF link](https://bradzzz.gitbooks.io/ga-seattle-dsi/content/dsi/dsi_05_classification_databases/2.1-lesson/assets/datasets/DefaultCreditCardClients_yeh_2009.pdf)
+
+Kovács, G. (2019). An empirical comparison and evaluation of minority oversampling techniques on a large number of imbalanced datasets. *Applied Soft Computing*, *83*, 105662. [PDF link](https://www.sciencedirect.com/science/article/pii/S1568494619304429)
+
+Saito, T., & Rehmsmeier, M. (2015). The precision-recall plot is more informative than the ROC plot when evaluating binary classifiers on imbalanced datasets. *PloS one*, *10*(3), e0118432. [HTML link](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0118432)
