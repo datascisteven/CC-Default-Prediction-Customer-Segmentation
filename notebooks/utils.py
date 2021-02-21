@@ -46,6 +46,33 @@ def aps2(X, y, model):
     probs = model.decision_function(X)
     return average_precision_score(y, probs)
 
+def get_metric(X_tr, y_tr, X_val, y_val, y_pred_tr, y_pred_val, model):
+    ac_tr = accuracy_score(y_tr, y_pred_tr)
+    ac_val= accuracy_score(y_val, y_pred_val)
+    f1_tr = f1_score(y_tr, y_pred_tr)
+    f1_val = f1_score(y_val, y_pred_val)
+    au_tr = auc(X_tr, y_tr, model)
+    au_val = auc(X_val, y_val, model)
+    rc_tr = recall_score(y_tr, y_pred_tr)
+    rc_val = recall_score(y_val, y_pred_val)
+    pr_tr = precision_score(y_tr, y_pred_tr)
+    pr_val = precision_score(y_val, y_pred_val)
+    aps_tr = aps(X_tr, y_tr, model)
+    aps_val = aps(X_val, y_val, model)
+
+    print('Training Accuracy: ', ac_tr)
+    print('Validation Accuracy: ', ac_val)
+    print('Training F1 Score: ', f1_tr)
+    print('Validation F1 Score: ', f1_val)
+    print('Training AUC Score: ', au_tr)
+    print('Validation AUC Score: ', au_val)
+    print('Training Recall Score: ', rc_tr)
+    print('Validation Recall Score: ', rc_val)
+    print('Training Precision Score: ', pr_tr)
+    print('Validation Precision Score: ', pr_val)
+    print('Training Average Precision Score: ', aps_tr)
+    print('Validation Average Precision Score: ', aps_val)
+
 def get_metrics(X_tr, y_tr, X_val, y_val, y_pred_tr, y_pred_val, model):
     ac_tr = accuracy_score(y_tr, y_pred_tr)
     ac_val= accuracy_score(y_val, y_pred_val)
@@ -86,6 +113,33 @@ def get_metrics(X_tr, y_tr, X_val, y_val, y_pred_tr, y_pred_val, model):
     labels = [f'{v1}\n{v2}\n{v3}' for v1, v2, v3 in zip(group_names, group_counts, group_percentages)]
     labels = np.asarray(labels).reshape(2,2)
     sns.heatmap(cnf, annot=labels, fmt='', cmap='Blues', annot_kws={'size':16})
+
+def get_metric_2(X_tr, y_tr, X_val, y_val, y_pred_tr, y_pred_val, model):
+    ac_tr = accuracy_score(y_tr, y_pred_tr)
+    ac_val= accuracy_score(y_val, y_pred_val)
+    f1_tr = f1_score(y_tr, y_pred_tr)
+    f1_val = f1_score(y_val, y_pred_val)
+    au_tr = auc2(X_tr, y_tr, model)
+    au_val = auc2(X_val, y_val, model)
+    rc_tr = recall_score(y_tr, y_pred_tr)
+    rc_val = recall_score(y_val, y_pred_val)
+    pr_tr = precision_score(y_tr, y_pred_tr)
+    pr_val = precision_score(y_val, y_pred_val)
+    aps_tr = aps2(X_tr, y_tr, model)
+    aps_val = aps2(X_val, y_val, model)
+
+    print('Training Accuracy: ', ac_tr)
+    print('Validation Accuracy: ', ac_val)
+    print('Training F1 Score: ', f1_tr)
+    print('Validation F1 Score: ', f1_val)
+    print('Training AUC Score: ', au_tr)
+    print('Validation AUC Score: ', au_val)
+    print('Training Recall Score: ', rc_tr)
+    print('Validation Recall Score: ', rc_val)
+    print('Training Precision Score: ', pr_tr)
+    print('Validation Precision Score: ', pr_val)
+    print('Training Average Precision Score: ', aps_tr)
+    print('Validation Average Precision Score: ', aps_val)
 
 def get_metrics_2(X_tr, y_tr, X_val, y_val, y_pred_tr, y_pred_val, model):
     ac_tr = accuracy_score(y_tr, y_pred_tr)
@@ -139,6 +193,12 @@ def plot_feature_importances(X, model):
 
 def pr_curve(X, y, model):
     y_score = model.decision_function(X) 
+    ap = average_precision_score(y, y_score)
+    disp = plot_precision_recall_curve(model, X, y)
+    disp.ax_.set_title('Precision-Recall Curve: AP={0:0.2f}'.format(ap))
+
+def pr_curve2(X, y, model):
+    y_score = model.predict_proba(X)[:,1]
     ap = average_precision_score(y, y_score)
     disp = plot_precision_recall_curve(model, X, y)
     disp.ax_.set_title('Precision-Recall Curve: AP={0:0.2f}'.format(ap))
