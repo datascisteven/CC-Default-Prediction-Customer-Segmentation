@@ -3,6 +3,8 @@ import numpy as np
 import seaborn as sns
 from sklearn.metrics import precision_score, recall_score, accuracy_score, f1_score, roc_curve, auc, average_precision_score, confusion_matrix, precision_recall_curve 
 from sklearn.metrics import roc_auc_score, classification_report, plot_precision_recall_curve
+from collections import Counter
+import pickle
 
 def accuracy(y, y_hat):
     y_y_hat = list(zip(y, y_hat))
@@ -202,3 +204,14 @@ def pr_curve2(X, y, model):
     ap = average_precision_score(y, y_score)
     disp = plot_precision_recall_curve(model, X, y)
     disp.ax_.set_title('Precision-Recall Curve: AP={0:0.2f}'.format(ap))
+
+
+def sampling(X_tr, y_tr, X_val, y_val, model, best_model):
+    X_tr_res, y_tr_res = model.fit_resample(X_tr, y_tr)
+    print("Training Count: ", Counter(y_tr_res))
+    X_val_res, y_val_res = model.fit_resample(X_val, y_val)
+    print("Validation Count: ", Counter(y_val_res))
+    fit = best_model.fit(X_tr_res, y_tr_res)
+    y_pred_tr = fit.predict(X_tr_res)
+    y_pred_val = fit.predict(X_val_res)
+    get_metric(X_tr_res, y_tr_res, X_val_res, y_val_res, y_pred_tr, y_pred_val, fit)
