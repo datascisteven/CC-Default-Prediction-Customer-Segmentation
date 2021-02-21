@@ -1,10 +1,13 @@
-# Default of Credit Card Prediction
+# Building a Model for Credit Card Default Prediction
 
 **Project Contributor**:  Steven Yan
 
+**Project Supervisors**: Fangfang Lee, Joshua...
+
+
 <img src="images/credit_card.jpeg">
 
-## Business Problem:
+## Background and Business Problem:
 
 A credit card issuer based in the United States has forayed into the Asian market and wants to gain a better understanding of the customer base andcredit car their credit card habits.
 
@@ -19,7 +22,6 @@ The goal behind using this model is to achieve two things:
 * Bring more consistency to the loaning process and;
 * Investigate what the key drivers are behind a potential defaulter
 
-## Business Proposal:
 
 ## Data Collection:
 
@@ -36,31 +38,90 @@ The 25 variables in this dataset comprises of:
   - monthly amount of bill statements,
   - monthly amount of previous payments)
 
-## Modeling Process:
 
-- Train-Validate-Test Split: 70-20-10
-- Vanilla Model:  Logistic Regression, Decision Tree, Random Forest, Gaussian Naive Bayes, Linear Discriminant Analysis, K-Nearest Neighbors, Adaboost, Gradient Boosting, XGBoost
-- Feature Engineering and Selection:  Random Forest, Decision Tree, and Adaboost Feature Importance, Recursive Feature Elimination
-- Baseline Model:  Logistic Regression, Decision Tree, Random Forest, Adaboost, Gradient Boosting, XGBoost
-- Hyperparameter Tuning:  Decision Tree, Random Forest, Adaboost, Gradient Boosting, and XGBoost Classifiers with GridSearchCV
-- Class Imbalance: SMOTE, Tomek Links
+## Procedure:
 
-## Analysis and Next Steps:
+- Data Cleaning:
+
+  - Check for null values
+  - Check for anomalous values and outliers
+- EDA:
+
+  - Univariate Analysis:  Categorical and Continuous Features, boxplots, bar graphs, distribution plots
+  - Bivariate Analysis: pairplots, stacked bar plots,
+- Train-Validate-Test Split:
+
+  - Training Set: 70
+  - Validation Set: 20
+  - Testing or Holdout Set: 10
+- Building a Vanilla Model:
+
+  - Logistic Regression, Decision Tree, Random Forest, Gaussian Naive Bayes, Linear Discriminant Analysis, K-Nearest Neighbors, Adaboost, Gradient Boosting, XGBoost
+- Feature Engineering:
+
+  - Using domain knowledge to develop different features that may or may not impact the predictive ability of the model
+- Feature Selection:
+
+  - Random Forest Feature Importance
+  - Decision Tree Feature Importance
+  - XGBoost Feature Importance
+  - Recursive Feature Elimination with Cross Validation
+- Develop Baseline Models:
+
+  - Logistic Regression
+  - Random Forest Classifier
+  - Adaboost Classifier
+  - Gradient Boosting Classifier
+  - XGBoost Classifier
+- Hyperparameter Tuning:
+
+  - Using GridSearchCV
+- Tuned Models:
+
+  - Logistic Regression, Random Forest, Adaboost, Gradient Boosting, XGBoost Classifiers
+- Class Imbalance Methods:
+
+  - Ensemble:  BaggingClassifier, BalancedBaggingClassifier
+  - Undersampling: Tomek Links, ENN
+  - Oversampling: SMOTE, ADASYN
+  - Hybridized: SMOTE-ENN, SMOTE-Tomek
+
+
+## Analysis:
+
+There was not a significant difference in the vanilla model, model with all the engineered features, and model after using feature selection methods.  The initial models were selected for the highest accuracy and PR AUC score.
+
+Some of the engineered features created seemed to have a stronger correlation than the original variables.  I have to check for collinearity as some of the variables would overlap in context.  I am surprised that the demographic features does not have a greater correlation with default.  It would seem useful for companies to be able to identify certain demographic groups that are more prone to defaulting.
+
+The metric I used was the PR AUC score, but with an eye to increasing accuracy and PR AUC score, which is the scoring parameters I used in GridSearchCV for hyperparameter tuning. Hyperparameter tuning improved accuracy to 82% from a baseline of 77%, and the highest PR AUC score at around 54%. My initial analysis of implementing class imbalance methods is that it substantially increases the PR AUC score to almost 90%, but accuracy tops out at 82% on the validation set.
+
+
+
+## Next Steps:
+
+- Exploration and analysis of Class Imbalance Methods
+- Use a different normalization technique (i.e. MinMaxScaler)
+- Incorporate datasets from different countries
+- Customer segmentation: implementation of unsupervised learning algorithms on datasets
+- Try additional ensemble methods on dataset:  BrownBoost, Catboost, LightGBM
+- Try unsupervised learning algorithms:   PCA, K-Means, Neural Networks
 
 
 ## Folder Structure:
 
 ```
 ├── /data                          (folder containing data files)
-│    ├── *.pickle                  <- pickles for transfering data between project workbooks
-│    ├── *.csv                     <- initial spreadsheet and training-validation-testing datasets
+│    ├── /pickles                  <- pickles for transfering data between project workbooks
+│    ├── /charts                   <- evaluation metrics charts
 ├── /images                        (folder containing generated visualizations)
 │    ├── *.png                     <- code-generated visualizations for EDA
 ├── /workbooks                     (folder containing workbooks for project)
-│    ├── EDA_Data_Cleaning.ipynb   <- data cleaning, EDA, feature engineering workbook
-│    ├── Initial_Modeling.ipynb    <- baseline model and feature selection workbook
-│    └── More_Modeling.ipynb       <- hyperparameter tuning and class imbalance workbook
+│    ├── EDA_Notebook.ipynb        <- data cleaning, EDA, feature engineering workbook
+│    ├── Modeling_Notebook.ipynb   <- baseline model and feature selection workbook
+│    ├── Modeling_2_Notebook.ipynb <- hyperparameter tuning and class imbalance workbook
+│    └── Holdout_Notebook.ipynb    <- holdout set workbook
 ├── README.md                      <- top-level README for reviewers of this project
+├── Final_CC_Default.ipynb.        <- final notebook summarizing the entire project
 └── presentation.pdf               <- pdf of the project presentation
 
 ```
@@ -75,11 +136,11 @@ If you are interested in connecting for networking, please feel free to connect 
 
 - My Profile: **<a href='https://www.linkedin.com/in/examsherpa/'>Steven Yan</a>**
 
-## Sources:
 
-Default of Credit Card Clients Dataset on Kaggle: https://www.kaggle.com/uciml/default-of-credit-card-clients-dataset
+## References:
 
-UCI Machine Learning Repository
+Default of Credit Card Clients Dataset on Kaggle: [https://www.kaggle.com/uciml/default-of-credit-card-clients-dataset](https://www.kaggle.com/uciml/default-of-credit-card-clients-dataset)
 
-Yeh, I. C., & Lien, C. H. (2009). The comparisons of data mining techniques for the predictive accuracy of probability of default of credit card clients. Expert Systems with Applications, 36(2), 2473-2480.
-https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients
+UCI Machine Learning Repository: [https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients)
+
+Yeh, I. C., & Lien, C. H. (2009). The comparisons of data mining techniques for the predictive accuracy of probability of default of credit card clients. Expert Systems with Applications, 36(2), 2473-2480. [link](https://bradzzz.gitbooks.io/ga-seattle-dsi/content/dsi/dsi_05_classification_databases/2.1-lesson/assets/datasets/DefaultCreditCardClients_yeh_2009.pdf)
