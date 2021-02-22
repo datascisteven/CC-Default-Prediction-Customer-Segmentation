@@ -2,26 +2,24 @@
 
 **Project Contributor**:  Steven Yan
 
-**Project Supervisors**: Fangfang Lee, Joshua (need last name)
+**Project Supervisors**: Fangfang Lee, Joshua Szymanowski
 
 <img src="images/credit_card.jpeg">
 
 ## Background and Business Problem:
 
-A credit card issuer based in the United States has forayed into the Asian market and wants to gain a better understanding of the customer base andcredit car their credit card habits.
+A credit card issuer based in the United States has forayed into the Asian market and wants to gain a better understanding of the customer base and its credit card habits. Building a supervised machine learning model for predicting the likelihood of default, as well as identifying the key factors that determine that likelihood would inform the issuer’s decision-making process on whom to give a credit card to and what credit limit to provide.
 
-In predict the likelihood of default for its customers, as well as identify the key drivers that determine this likelihood.
+Many statistical methods in the past have been used to develop models of risk prediction and with the evolution of AI and machine learning to forecast credit risk.  From the perspective of risk control, predicting the probability of defaulting is more meaningful, pertinent, and tangible for practitioners.
 
-This would inform the issuer’s decisions on who to give a credit card to and what credit limit to provide.
-
-It would also help the issuer have a better understanding of their current and potential customers, which would inform their future strategy, including their planning of offering targeted credit products to their customers.
+High default has been a major problem in the credit card market and has been growing in recent years despite the strength of the U.S. economy. Clearly credit card default is a complex phenomenon involving many factors beyond the scope of the present research. The variables
+which we have examined here capture some key behaviors and provide the issuer a better understanding of current and potential customers, specificially which would inform their strategy in the new market.
 
 The goal behind using this model is to achieve two things:
 
-* Bring more consistency to the loaning process and;
-* Investigate what the key drivers are behind a potential defaulter
+* Bring more consistency to the loaning process
+* Investigate what key factors are behind a potential defaulter
 
-(need to edit and clean up)
 
 ## Data Collection:
 
