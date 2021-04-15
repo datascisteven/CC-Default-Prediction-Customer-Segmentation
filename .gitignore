@@ -127,3 +127,4 @@ dmypy.json
 # Added files and folders
 .DS_Store
 
+/extra
