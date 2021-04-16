@@ -122,12 +122,15 @@ There is not the same clear difference in distribution between the different `ge
 │    ├── *.png                     <- code-generated visualizations for EDA
 ├── /workbooks                     (folder containing workbooks for project)
 │    ├── EDA_Notebook.ipynb        <- data cleaning, EDA, feature engineering workbook
+│    ├── Class_Imbalance.ipynb     <- workbook for exploring different class imbalance methods
 │    ├── Modeling_Notebook.ipynb   <- baseline model and feature selection workbook
 │    ├── Modeling_2_Notebook.ipynb <- hyperparameter tuning and class imbalance workbook
-│    └── Holdout_Notebook.ipynb    <- holdout set workbook
+│    ├── Holdout_Notebook.ipynb    <- holdout set workbook
+│    └── utils.py                  <- file containing self-generated functions
 ├── README.md                      <- top-level README for reviewers of this project
-├── Final_CC_Default.ipynb.        <- final notebook summarizing the entire project
-└── presentation.pdf               <- pdf of the project presentation
+├── Final_CC_Default.ipynb         <- final notebook summarizing the entire project
+├── presentation.pdf               <- pdf of the project presentation
+└── utils.py                       <- file containing self-generated functions
 
 ```
 
