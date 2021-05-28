@@ -6,7 +6,7 @@
 
 <img src="images/credit_card.jpeg">
 
-## Background and Business Problem:
+# Background and Business Problem:
 
 A credit card issuer based in the United States has forayed into the Asian market and wants to gain a better understanding of the customer base and its credit card habits. Building a supervised machine learning model for predicting the likelihood of default, as well as identifying the key factors that determine that likelihood would inform the issuer’s decision-making process on whom to give a credit card to and what credit limit to provide.
 
@@ -21,7 +21,7 @@ The goal behind using this model is to achieve two things:
 * Investigate what key factors are behind a potential defaulter
 
 
-## Data Collection:
+# Data Collection:
 
 The dataset considered in this analysis is the *“Default of Credit Card Clients”* dataset released under the public license of *Creative Commons* and available on the [Kaggle website](https://www.kaggle.com/uciml/default-of-credit-card-clients-dataset).
 
@@ -37,7 +37,7 @@ The 25 variables in this dataset comprises of:
   - monthly amount of previous payments)
 
 
-## Procedure:
+# Procedure:
 
 - Data Cleaning:
 
@@ -80,7 +80,7 @@ The 25 variables in this dataset comprises of:
 - Class Imbalance Methods:
 
   - Ensemble:  BaggingClassifier, BalancedBaggingClassifier
-  - Undersampling: Tomek Links, ENN
+  - Undersampling: TomekLinks, ENN
   - Oversampling: SMOTE, ADASYN
   - Hybridized: SMOTE-ENN, SMOTE-Tomek
 
