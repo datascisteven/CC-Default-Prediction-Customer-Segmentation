@@ -1,8 +1,8 @@
 # Building a Model for Credit Card Default Prediction
 
-**Project Contributor**:  Steven Yan
+**Project Author**:  Steven Yan
 
-**Project Supervisors**: Fangfang Lee, Joshua Szymanowski
+**Project Advisors**: Fangfang Lee, Joshua Szymanowski
 
 <img src="images/credit_card.jpeg">
 
@@ -12,11 +12,7 @@ A credit card issuer based in the United States has forayed into the Asian marke
 
 Many statistical methods in the past have been used to develop models of risk prediction and with the evolution of AI and machine learning to forecast credit risk.  From the perspective of risk control, predicting the probability of defaulting is more meaningful, pertinent, and tangible for practitioners.
 
-<<<<<<< HEAD
 Default occurs when a credit card customer fails to pay a calculated minimum monthly amount, comprising of interest and some principal amount. High default has been a major problem in the credit card market and has been growing in recent years despite the strength of the U.S. economy. Clearly credit card default is a complex phenomenon involving many factors beyond the scope of the present research. The variables which we have examined here capture some key behaviors and provide the issuer a better understanding of current and potential customers, specificially which would inform their strategy in the new market.
-=======
-High default has been a major problem in the credit card market and has been growing in recent years despite the strength of the U.S. economy. Clearly credit card default is a complex phenomenon involving many factors beyond the scope of the present research. The variables which we have examined here capture some key behaviors and provide the issuer a better understanding of current and potential customers, specificially which would inform their strategy in the new market.
->>>>>>> 40cd93e831ebb862574eaa467e34948626d5ad00
 
 The goal behind using this model is to achieve two things:  to bring more consistency to the loaning process and investigate what key factors are behind a potential defaulter.
 
@@ -25,11 +21,7 @@ The goal behind using this model is to achieve two things:  to bring more consis
 
 The dataset considered in this analysis is the *“Default of Credit Card Clients”* dataset released under the public license of *Creative Commons* and available on the [Kaggle website](https://www.kaggle.com/uciml/default-of-credit-card-clients-dataset).
 
-<<<<<<< HEAD
 This dataset contains  1 response variable, 23 explanatory variables, and 30000 case data from a bank and credit card issuer in Taiwan, where each observation corresponds to a particular credit card client. Among the total 30000 observations, 6636 observations (22.1%) are cardholders with default payment.
-=======
-This dataset contains  1 response variable, 23 explanatory variables, and 30000 case data. observations of 25 variables** from a bank (and also a cash and credit card issuer in Taiwan), where each observation corresponds to a particular credit card client. Among the total 30000 observations, 6636 observations (22.1%) are cardholders with default payment.
->>>>>>> 40cd93e831ebb862574eaa467e34948626d5ad00
 
 The 25 variables in this dataset comprises of:
 
@@ -41,37 +33,58 @@ The 25 variables in this dataset comprises of:
   - monthly amount of previous payments)
 
 
-<<<<<<< HEAD
-## Data Understanding:
-=======
+## Data Understanding/Exploratory Data Analysis:
+</br>
+
+<p><img src="images/baseline.png"></p>
+</br>
+
+There is a class imbalance that will need to be addressed in creating the best predictive model for customers likely to default on their next payment.
+
+</br>
+<p><img src="images/pairplot2.png"></p>
+</br>
+
+The difference in distributions of defaulters and non-defaulters for each of the payment categories (-2 to 6) can be seen in the diagonal plots.  That indicates to me that `behind1` - `behind6` does have some correlation with `default`.
+
+</br>
+<p><img src="images/pairplot1.png"></p>
+</br>
+
+The proportion of defaulters and non-defaulters are essentially the same for the different categories within `gender`, `education`, `marriage` categories, which would indicate to me that they do not have any correlation with `default`.
+
+## Modeling:
+
+- Building Vanilla Model:
+  - Logistic Regression, Decision Tree, Random Forest, Gaussian Naive Bayes, Linear Discriminant Analysis, K-Nearest Neighbors, Adaboost, Gradient Boosting, XGBoost
+- Feature Selection:
+  - Feature Importance: Random Forest, Decision Tree, XGBoost 
+  - Recursive Feature Elimination with Cross Validation
+- Develop Baseline Models:
+  - Logistic Regression, Random Forest, Adaboost, Gradient Boosting, XGBoost 
+  - Hyperparameter Tuning Using GridSearchCV
+- Class Imbalance Methods:
+  - **Ensemble:** Bagging Classifier, Balanced Bagging Classifier, Balanced Random Forest Classifier, RUSBoost Classifier, Easy Ensemble Classifier  
+  - **Undersampling:** Neighborhood Cleaning Rule, One Sided Selection, Tomek Links, Edited Nearest Neighbours
+  - **Oversampling:** SMOTE, ADASYN, SVMSMOTE
+  - **Hybridized:** SMOTE-ENN, SMOTE-Tomek
+  - **SMOTE Variants:** sv.polynom_fit_SMOTE. sv.ProWSyn, sv.SMOTE_IPF, sv.SMOBD, sv.G_SMOTE, sv.CCR, sv.LVQ_SMOTE, sv.Assemble_SMOTE
 
 
+## Evaluation:
 
-## Exploratory Data Analysis:
->>>>>>> 40cd93e831ebb862574eaa467e34948626d5ad00
+- Best model achieved through hyperparameter tuning with slighter greater than 82% accuracy (in line with other published similar models)
+- Applying imbalanced methods did not increase accuracy, but increased ROC-AUC, Precision, and Recall
+- You want to minimize False Negatives, as in predicting non-default when customer actually defaults
+- greater accuracy could be achieved with neural networks
 
-<img src="images/baseline.png">
-
-There is a clear class imbalance that will need to be addressed in creating the best predictive model for customers likely to default on their next payment.
-
-<img src="images/pairplot2.png">
-
-The difference in distributions as exhibited in the diagonal plots indicates that `behind1` - `behind6` has correlation with `default`.
-
-<img src="images/pairplot1.png">
-
-There is not the same clear difference in distribution between the different `gender`, `education`, `marriage`categories, which would indicate to me that they would have less of a correlation with `default`.
-
-
-
-
-## Next Steps:
+## Potential Next Steps:
 
 - Use a different normalization technique (i.e. MinMaxScaler)
 - Incorporate datasets from different countries
 - Customer segmentation: implementation of unsupervised learning algorithms on datasets
 - Try additional ensemble methods on dataset:  BrownBoost, Catboost, LightGBM
-- Try unsupervised learning algorithms:   PCA, K-Means, Neural Networks
+- Try unsupervised learning algorithms: PCA, K-Means, Neural Networks
 
 
 ## Folder Structure:
