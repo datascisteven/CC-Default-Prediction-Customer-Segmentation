@@ -12,20 +12,16 @@ A credit card issuer based in the United States has forayed into the Asian marke
 
 Many statistical methods in the past have been used to develop models of risk prediction and with the evolution of AI and machine learning to forecast credit risk.  From the perspective of risk control, predicting the probability of defaulting is more meaningful, pertinent, and tangible for practitioners.
 
-High default has been a major problem in the credit card market and has been growing in recent years despite the strength of the U.S. economy. Clearly credit card default is a complex phenomenon involving many factors beyond the scope of the present research. The variables
-which we have examined here capture some key behaviors and provide the issuer a better understanding of current and potential customers, specificially which would inform their strategy in the new market.
+Default occurs when a credit card customer fails to pay a calculated minimum monthly amount, comprising of interest and some principal amount. High default has been a major problem in the credit card market and has been growing in recent years despite the strength of the U.S. economy. Clearly credit card default is a complex phenomenon involving many factors beyond the scope of the present research. The variables which we have examined here capture some key behaviors and provide the issuer a better understanding of current and potential customers, specificially which would inform their strategy in the new market.
 
-The goal behind using this model is to achieve two things:
-
-* Bring more consistency to the loaning process
-* Investigate what key factors are behind a potential defaulter
+The goal behind using this model is to achieve two things:  to bring more consistency to the loaning process and investigate what key factors are behind a potential defaulter.
 
 
-# Data Collection:
+# Data Sources:
 
 The dataset considered in this analysis is the *“Default of Credit Card Clients”* dataset released under the public license of *Creative Commons* and available on the [Kaggle website](https://www.kaggle.com/uciml/default-of-credit-card-clients-dataset).
 
-This dataset contains **30000 observations of 25 variables** from a bank (and also a cash and credit card issuer in Taiwan), where each observation corresponds to a particular credit card client. Among the total 30000 observations, 6636 observations (22.1%) are cardholders with default payment.
+This dataset contains  1 response variable, 23 explanatory variables, and 30000 case data from a bank and credit card issuer in Taiwan, where each observation corresponds to a particular credit card client. Among the total 30000 observations, 6636 observations (22.1%) are cardholders with default payment.
 
 The 25 variables in this dataset comprises of:
 
@@ -37,55 +33,7 @@ The 25 variables in this dataset comprises of:
   - monthly amount of previous payments)
 
 
-# Procedure:
-
-- Data Cleaning:
-
-  - Check for null values
-  - Check for anomalous values and outliers
-- EDA:
-
-  - Univariate Analysis:  Categorical and Continuous Features, boxplots, bar graphs, distribution plots
-  - Bivariate Analysis: pairplots, stacked bar plots,
-- Train-Validate-Test Split:
-
-  - Training Set: 70
-  - Validation Set: 20
-  - Testing or Holdout Set: 10
-- Building a Vanilla Model:
-
-  - Logistic Regression, Decision Tree, Random Forest, Gaussian Naive Bayes, Linear Discriminant Analysis, K-Nearest Neighbors, Adaboost, Gradient Boosting, XGBoost
-- Feature Engineering:
-
-  - Using domain knowledge to develop different features that may or may not impact the predictive ability of the model
-- Feature Selection:
-
-  - Random Forest Feature Importance
-  - Decision Tree Feature Importance
-  - XGBoost Feature Importance
-  - Recursive Feature Elimination with Cross Validation
-- Develop Baseline Models:
-
-  - Logistic Regression
-  - Random Forest Classifier
-  - Adaboost Classifier
-  - Gradient Boosting Classifier
-  - XGBoost Classifier
-- Hyperparameter Tuning:
-
-  - Using GridSearchCV
-- Tuned Models:
-
-  - Logistic Regression, Random Forest, Adaboost, Gradient Boosting, XGBoost Classifiers
-- Class Imbalance Methods:
-
-  - Ensemble:  BaggingClassifier, BalancedBaggingClassifier
-  - Undersampling: TomekLinks, ENN
-  - Oversampling: SMOTE, ADASYN
-  - Hybridized: SMOTE-ENN, SMOTE-Tomek
-
-
-## Exploratory Data Analysis:
+## Data Understanding:
 
 <img src="images/baseline.png">
 
@@ -104,7 +52,6 @@ There is not the same clear difference in distribution between the different `ge
 
 ## Next Steps:
 
-- Exploration and analysis of Class Imbalance Methods
 - Use a different normalization technique (i.e. MinMaxScaler)
 - Incorporate datasets from different countries
 - Customer segmentation: implementation of unsupervised learning algorithms on datasets
@@ -142,7 +89,7 @@ If you have questions about the project or, please feel free to connect with me 
 
 If you are interested in connecting for networking, please feel free to connect with me via LinkedIn:
 
-- My Profile: **<a href='https://www.linkedin.com/in/examsherpa/'>Steven Yan</a>**
+- My Profile: **<a href='https://www.linkedin.com/in/datascisteven/'>Steven Yan</a>**
 
 
 ## References:
