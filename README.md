@@ -25,12 +25,12 @@ This dataset contains  1 response variable, 23 explanatory variables, and 30000 
 
 The 25 variables in this dataset comprises of:
 
-- demographic variables (gender, education level, marriage status, and age)
+- demographic variables (`gender`, `education`, `marriage`, and `age`)
 - financial variables of 6-months worth of payment data from April 2005 to September 2005
-  - amount of given credit
-  - monthly repayment statuses
-  - monthly amount of bill statements,
-  - monthly amount of previous payments)
+  - amount of given credit (`limit`)
+  - monthly repayment statuses (`behind1` \- `behind6`)
+  - monthly amount of bill statements (`billed1` \- `billed6`)
+  - monthly amount of previous payments (`paid1` \- `paid6`)
 
 
 ## Data Understanding/Exploratory Data Analysis:
@@ -76,7 +76,7 @@ The proportion of defaulters and non-defaulters are essentially the same for the
 - Best model achieved through hyperparameter tuning with slighter greater than 82% accuracy (in line with other published similar models)
 - Applying imbalanced methods did not increase accuracy, but increased ROC-AUC, Precision, and Recall
 - You want to minimize False Negatives, as in predicting non-default when customer actually defaults
-- greater accuracy could be achieved with neural networks
+- Greater accuracy could be achieved with neural networks
 
 ## Potential Next Steps:
 
@@ -95,7 +95,7 @@ The proportion of defaulters and non-defaulters are essentially the same for the
 │    ├── /charts                   <- evaluation metrics charts
 ├── /images                        (folder containing generated visualizations)
 │    ├── *.png                     <- code-generated visualizations for EDA
-├── /workbooks                     (folder containing workbooks for project)
+├── /notebooks                     (folder containing workbooks for project)
 │    ├── EDA_Notebook.ipynb        <- data cleaning, EDA, feature engineering workbook
 │    ├── Class_Imbalance.ipynb     <- workbook for exploring different class imbalance methods
 │    ├── Modeling_Notebook.ipynb   <- baseline model and feature selection workbook
