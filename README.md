@@ -80,7 +80,6 @@ The proportion of defaulters and non-defaulters are essentially the same for the
 
 ## Potential Next Steps:
 
-- Use a different normalization technique (i.e. MinMaxScaler)
 - Incorporate datasets from different countries
 - Customer segmentation: implementation of unsupervised learning algorithms on datasets
 - Try additional ensemble methods on dataset:  BrownBoost, Catboost, LightGBM
@@ -99,8 +98,9 @@ The proportion of defaulters and non-defaulters are essentially the same for the
 │    ├── EDA_Notebook.ipynb        <- data cleaning, EDA, feature engineering workbook
 │    ├── Class_Imbalance.ipynb     <- workbook for exploring different class imbalance methods
 │    ├── Modeling_Notebook.ipynb   <- baseline model and feature selection workbook
-│    ├── Modeling_2_Notebook.ipynb <- hyperparameter tuning and class imbalance workbook
+│    ├── Modeling_2_Notebook.ipynb <- hyperparameter tuning workbook
 │    ├── Holdout_Notebook.ipynb    <- holdout set workbook
+│    ├── PCA.ipynb                 <- principal component analysis test notebook
 │    └── utils.py                  <- file containing self-generated functions
 ├── README.md                      <- top-level README for reviewers of this project
 ├── Final_CC_Default.ipynb         <- final notebook summarizing the entire project
