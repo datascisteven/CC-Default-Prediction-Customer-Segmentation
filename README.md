@@ -1,12 +1,14 @@
 # Building a Model for Credit Card Default Prediction
 
-**Project Author**:  Steven Yan
+**Author**:  Steven Yan 
 
-**Project Advisors**: Fangfang Lee, Joshua Szymanowski
+<img src="images/credit_card_trap.jpeg">
 
-<img src="images/credit_card.jpeg">
 
-# Background and Business Problem:
+# Introduction
+
+
+# Business Problem:
 
 A credit card issuer based in the United States has forayed into the Asian market and wants to gain a better understanding of the customer base and its credit card habits. Building a supervised machine learning model for predicting the likelihood of default, as well as identifying the key factors that determine that likelihood would inform the issuer’s decision-making process on whom to give a credit card to and what credit limit to provide.
 
@@ -41,14 +43,18 @@ The 25 variables in this dataset comprises of:
 
 There is a class imbalance that will need to be addressed in creating the best predictive model for customers likely to default on their next payment.
 
-</br>
-<p><img src="images/pairplot2.png"></p>
-</br>
 
-The difference in distributions of defaulters and non-defaulters for each of the payment categories (-2 to 6) can be seen in the diagonal plots.  That indicates to me that `behind1` - `behind6` does have some correlation with `default`.
+<p><a href="https://public.tableau.com/views/DistributionofFeaturesforTaiwaneseCCDefault/FeatureDistributions?:language=en-US&:display_count=n&:origin=viz_share_link"><img src="images/Feature Distributions.png"></a></p>
+
+
+- **Marriage:** Only slightly more single individuals in non-default
+- **Education:**  Distribution is similar
+- **Gender:** Almost twice as many females in non-default
+- **Limit:**  Negligible difference in boxplots, higher range of non-default
+- **Age:**  Essentially no difference in boxplots
 
 </br>
-<p><img src="images/pairplot1.png"></p>
+<p><a href="https://public.tableau.com/views/RepaymentStatusforTaiwaneseCreditCardDefault/PayStatusApr-Sep?:language=en-US&:display_count=n&:origin=viz_share_link"><img src="images/Pay Status Apr-Sep.png"></a></p>
 </br>
 
 The proportion of defaulters and non-defaulters are essentially the same for the different categories within `gender`, `education`, `marriage` categories, which would indicate to me that they do not have any correlation with `default`.
